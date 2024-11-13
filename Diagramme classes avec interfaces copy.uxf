@@ -1,0 +1,108 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>360</x><y>420</y><w>150</w><h>220</h></coordinates><panel_attributes>/Utilisateur/
+--
+id: int
+nom: String
+prenom: String
+email: String
+motDePasse: String
+--
+creerTache()
+supprimerNotification()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>700</y><w>130</w><h>120</h></coordinates><panel_attributes>Tuteur
+--
+--
+planifierRdv()
+modifierRdv()
+annulerRdv()
+creerTacheEleve()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>700</y><w>100</w><h>30</h></coordinates><panel_attributes>Eleve
+--
+tuteur
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>630</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>630</y><w>240</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>220;10;220;50;10;50;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>60</y><w>190</w><h>120</h></coordinates><panel_attributes>Calendrier
+--
+id: int
+utilisateur: Utilisateur
+rendezVous: list&lt;RendezVous&gt;
+taches: list&lt;Tache&gt;
+--
+ajouterRdv()
+ajouterTache()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>60</y><w>130</w><h>160</h></coordinates><panel_attributes>RendezVous
+--
+id: int
+eleve: Utilisateur
+tuteur: Utilisateur
+dateHeure: dateTime
+sujet: String
+--
+ajouter()
+modifier()
+supprimer()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>60</y><w>160</w><h>180</h></coordinates><panel_attributes>Tache
+--
+id: int
+utilisateur: Utilisateur
+createur: Utilisateur
+message: String
+dateHeure: dateTime
+rendezVous: RendezVous
+--
+ajouter()
+modifier()
+supprimer()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>170</y><w>40</w><h>270</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;10;10;250</additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>210</y><w>70</w><h>150</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=1
+^
+planifie
+</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>230</y><w>260</w><h>280</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=1
+cree &gt;</panel_attributes><additional_attributes>200;10;200;250;10;250</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>70</y><w>190</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=2
+</panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>70</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>0</y><w>610</w><h>80</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=*
+&lt; est liée à</panel_attributes><additional_attributes>10;60;10;20;580;20;580;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>590</y><w>140</w><h>180</h></coordinates><panel_attributes>Message
+--
+id: int
+emetteur: Utilisateur
+recepteur: Utilisateur
+dateHeure: dateTime
+message: String
+lu: boolean
+epingle: boolean
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>590</y><w>100</w><h>180</h></coordinates><panel_attributes>Notification
+--
+id: int
+utilisateur: Utilisateur
+message: String
+dateHeure: dateTime
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>550</y><w>200</w><h>60</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+envoie &gt;</panel_attributes><additional_attributes>10;20;170;20;170;40</additional_attributes></element><element><id>Relation</id><coordinates><x>710</x><y>610</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+declenche &gt;</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>780</y><w>160</w><h>70</h></coordinates><panel_attributes>&lt;&lt; interface &gt;&gt;
+IMessagerie
+--
+envoyerMessage(Message)
+recevoirMessage(Message)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>340</y><w>160</w><h>90</h></coordinates><panel_attributes>&lt;&lt; interface &gt;&gt;
+IPlanification
+--
+planifierRdv(RendezVous)
+modifierRdv(RendezVous)
+annulerRdv(RendezVous)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>440</y><w>110</w><h>100</h></coordinates><panel_attributes>&lt;&lt; interface &gt;&gt;
+IGestionCompte
+--
+seConnecter()
+modifierInfos()
+reinitialiserMdP()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>490</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;70;10</additional_attributes></element></diagram>

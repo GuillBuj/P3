@@ -1,0 +1,94 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>320</x><y>440</y><w>150</w><h>220</h></coordinates><panel_attributes>/Utilisateur/
+--
+id: int
+nom: String
+prenom: String
+email: String
+motDePasse: String
+--
+seConnecter()
+modifierInfos()
+reinitialiserMdP()
+creerTache()
+supprimerNotification()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>720</y><w>130</w><h>120</h></coordinates><panel_attributes>Tuteur
+--
+--
+planifierRdv()
+modifierRdv()
+annulerRdv()
+creerTacheEleve()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>720</y><w>100</w><h>30</h></coordinates><panel_attributes>Eleve
+--
+tuteur
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>650</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>650</y><w>240</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>220;10;220;50;10;50;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>220</y><w>190</w><h>120</h></coordinates><panel_attributes>Calendrier
+--
+id: int
+utilisateur: Utilisateur
+rendezVous: list&lt;RendezVous&gt;
+taches: list&lt;Tache&gt;
+--
+ajouterRdv()
+ajouterTache()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>220</y><w>130</w><h>160</h></coordinates><panel_attributes>RendezVous
+--
+id: int
+eleve: Utilisateur
+tuteur: Utilisateur
+dateHeure: dateTime
+sujet: String
+--
+ajouter()
+modifier()
+supprimer()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>220</y><w>160</w><h>180</h></coordinates><panel_attributes>Tache
+--
+id: int
+utilisateur: Utilisateur
+createur: Utilisateur
+message: String
+dateHeure: dateTime
+rendezVous: RendezVous
+--
+ajouter()
+modifier()
+supprimer()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>330</y><w>40</w><h>130</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>70</x><y>370</y><w>70</w><h>370</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=1
+^
+planifie
+</panel_attributes><additional_attributes>10;10;10;350</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>390</y><w>240</w><h>140</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=1
+cree &gt;</panel_attributes><additional_attributes>200;10;200;110;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>230</y><w>180</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=2
+</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>230</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>170</y><w>600</w><h>70</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=*
+&lt; est liée à</panel_attributes><additional_attributes>10;50;10;20;570;20;570;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>610</y><w>140</w><h>180</h></coordinates><panel_attributes>Message
+--
+id: int
+emetteur: Utilisateur
+recepteur: Utilisateur
+dateHeure: dateTime
+message: String
+lu: boolean
+epingle: boolean
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>780</x><y>610</y><w>100</w><h>180</h></coordinates><panel_attributes>Notification
+--
+id: int
+utilisateur: Utilisateur
+message: String
+dateHeure: dateTime
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>570</y><w>200</w><h>60</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+envoie &gt;</panel_attributes><additional_attributes>10;20;170;20;170;40</additional_attributes></element><element><id>Relation</id><coordinates><x>670</x><y>630</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+declenche &gt;</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element></diagram>
